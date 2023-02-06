@@ -3,16 +3,23 @@
 #define MC_6800_H_
 
     #include <stdint.h>
+    #include <stdlib.h>
 
-    typedef struct MS6502_t
+    typedef struct MC6800_t
     {
 
-        uint8_t a;
-        uint8_t x;
-        uint8_t y;
-        uint8_t z;
+        /*
+
+            TODO:
+
+        */
 
     } MC6800;
     
+    /*
+
+        TODO:
+
+    */
 
 #endif
