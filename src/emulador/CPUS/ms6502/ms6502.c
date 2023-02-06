@@ -3,12 +3,33 @@
 MS6502 *CreateNewMS6502()
 {
     
-    MS6502 *new_ms6502 = malloc(sizeof(MS6502 *));
+    MS6502 *_output_value = malloc(sizeof(MS6502 *));
 
-    new_ms6502->ReadMemory   = NULL;
-    new_ms6502->WriteMemory  = NULL;
+    if (_output_value == NULL) goto _end_of_function;
 
-    return new_ms6502;
+    _output_value->a = 0x00;
+    _output_value->x = 0x00;
+    _output_value->y = 0x00;
+
+    _output_value->program_counter  = 0x0000;
+    _output_value->stack_pointer    = 0x00;
+    _output_value->status          |= MS6502_INTERRUPT_FLAG;
+
+    _output_value->fetched          = 0x00;
+    _output_value->temp             = 0x00;
+    _output_value->addr_abs         = 0x00;
+    _output_value->addr_rel         = 0x00;
+    _output_value->opcode           = 0x00;
+    _output_value->clock_count      = 0x00;
+    _output_value->clock_count      = 0x00;
+
+    _output_value->ReadMemory   = NULL;
+
+    _output_value->WriteMemory  = NULL;
+
+_end_of_function:
+
+    return _output_value;
 
 }
 
@@ -19,6 +40,6 @@ void ResetMS6502(MS6502 *cpu)
 
     cpu->stack_pointer = 0xFF;
 
-	cpu->status |= I;
+	cpu->status |= MS6502_INTERRUPT_FLAG;
 
 }
