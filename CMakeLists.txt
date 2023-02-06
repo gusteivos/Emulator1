@@ -7,7 +7,7 @@ project(Emulator1 VERSION 0.1.0)
 file(GLOB executable_source_files
     "main.c"
     "src/*.c"
-    "src/*/*/*/*.c"
+    "src/*/*/*.c"
     "src/*.*.c"
 )
 

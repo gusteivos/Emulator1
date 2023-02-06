@@ -1,4 +1,4 @@
-#include <emulador/CPUS/ms6502/ms6502.h>
+#include <CPUS/ms6502/ms6502.h>
 
 MS6502 *CreateNewMS6502()
 {

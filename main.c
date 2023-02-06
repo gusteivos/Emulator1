@@ -1,6 +1,6 @@
 
-#include <emulador/CPUS/ms6502/ms6502.h>
-#include <terminalutilities.h>
+#include <CPUS/ms6502/ms6502.h>
+#include <consoleutilities.h>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,7 +9,7 @@
 int32_t main(int32_t argument_count, char *argument_values[])
 {
 
-    ClearTerminal();
+    Ut_ClearConsole();
 
     MS6502 *cpu = CreateNewMS6502();
 
