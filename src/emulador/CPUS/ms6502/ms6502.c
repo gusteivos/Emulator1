@@ -15,8 +15,6 @@ MS6502 *CreateNewMS6502()
     _output_value->sp   = 0x00;
     _output_value->sr  |= MS6502_INTERRUPT_FLAG;
 
-    
-
     _output_value->ReadMemory   = NULL;
 
     _output_value->WriteMemory  = NULL;
@@ -34,8 +32,26 @@ void ResetMS6502(MS6502 *cpu)
 
     cpu->pc     = ((uint16_t)cpu->ReadMemory(cpu->pc) | (uint16_t)cpu->ReadMemory(0xFFFD) << 8);
 
-    cpu->sp     = 0xFF;
+    cpu->sp     = 0xFD;
 
-	cpu->sr    |= MS6502_INTERRUPT_FLAG;
+	cpu->sr    |= MS6502_UNUSED_FLAG;
+
+}
+
+void SetMS6502Flag  (MS6502 *cpu, uint8_t flag)
+{
+
+    if (cpu == NULL) return;
+
+    cpu->sr |= flag;
+
+}
+
+void ClearMS6502Flag(MS6502 *cpu, uint8_t flag)
+{
+
+    if (cpu == NULL) return;
+
+    cpu->sr &= ~flag;
 
 }
